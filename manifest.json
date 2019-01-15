@@ -1,0 +1,26 @@
+{
+  "short_name": "Nimbus",
+  "name": "Nimbus Weather",
+  "display": "fullscreen",
+  "orientation": "portrait",
+  "theme_color": "#3a67b5",
+  "background_color": "#3a67b5",
+  "icons": [
+    {
+      "src": "src/images/app-icon-md.png",
+      "type": "image/png",
+      "sizes": "152x152"
+    },
+    {
+      "src": "src/images/app-icon-lg.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "src/images/app-icon-xl.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "index.html?pwa=true"
+}
