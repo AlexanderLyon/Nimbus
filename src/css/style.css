@@ -4,7 +4,7 @@
 }
 body {
   margin: 0px;
-  background: linear-gradient(-45deg, #1f4078, #244682, #316b96, rgb(79, 121, 175), rgb(109, 128, 180), rgb(92, 133, 164), #4e7eaf, #81b0d0, #7fbac6);
+  background: linear-gradient(-45deg, #1f4078, #244682, #3662a0, rgb(78, 119, 181), rgb(57, 110, 175), rgb(39, 101, 150), #4573a2, #3c6490, #7fbac6);
 	background-size: 500% 200%;
 	-webkit-animation: Gradient 14s ease infinite;
 	-moz-animation: Gradient 14s ease infinite;
@@ -65,19 +65,21 @@ input[type="search"]::-ms-reveal { display: none; }
   display: inline-block;
   -webkit-appearance: none;
   cursor: pointer;
-  padding: 7px;
+  padding: 7px 10px;
   color: white;
-  border: 2px solid white;
-  border-radius: 0px;
-  background-color: transparent;
+  border: 1px solid white;
+  border-radius: 6px;
+  background-color: rgba(255,255,255,0.17);
   font-size: 0.8em;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  transition: 0.3s;
 }
 .btn:focus, button:focus { outline: none; }
 
 @media(min-width: 800px) {
   .btn:hover {
-    color: #43A6BF;
-    background-color: white;
+    background-color: transparent;
   }
 }
 
@@ -109,7 +111,7 @@ section { margin: 50px 20px 0px 20px; }
   height: 100vh;
   width: 100vw;
   text-align: center;
-  background: linear-gradient(-45deg, #1f4078, #244682, #316b96, rgb(79, 121, 175), rgb(109, 128, 180), rgb(92, 133, 164), #4e7eaf, #81b0d0, #409daf);
+  background: linear-gradient(-45deg, #1f4078, #244682, #3662a0, rgb(78, 119, 181), rgb(57, 110, 175), rgb(39, 101, 150), #4573a2, #3c6490, #7fbac6);
 	background-size: 500% 200%;
 	-webkit-animation: Gradient 14s ease infinite;
 	-moz-animation: Gradient 14s ease infinite;
@@ -282,7 +284,7 @@ section { margin: 50px 20px 0px 20px; }
   left: 0px;
   width: 100vw;
   height: 100vh;
-  background: linear-gradient(-45deg, #1f4078, #244682, #316b96, rgb(79, 121, 175), rgb(109, 128, 180), rgb(92, 133, 164), #4e7eaf, #81b0d0, #409daf);
+  background: linear-gradient(-45deg, #1f4078, #244682, #3662a0, rgb(78, 119, 181), rgb(57, 110, 175), rgb(39, 101, 150), #4573a2, #3c6490, #7fbac6);
   background-size: 500% 200%;
 	-webkit-animation: Gradient 14s ease infinite;
 	-moz-animation: Gradient 14s ease infinite;
@@ -436,7 +438,7 @@ section { margin: 50px 20px 0px 20px; }
   -moz-transition: 200ms;
   -o-transition: 200ms;
 }
-.day:last-of-type { border-bottom: 1px solid rgba(255, 255, 255, 0.23); }
+.day:last-of-type:not(.expanded) { border-bottom: 1px solid rgba(255, 255, 255, 0.23); }
 .day span {
   font-size: 0.9em;
 }
@@ -464,10 +466,16 @@ section { margin: 50px 20px 0px 20px; }
 }
 .expanded {
   background-color: rgba(255, 255, 255, 0.17);
+  border-radius: 6px;
+  border: none;
 }
+.expanded + div { border: none; }
 .expanded-day {
   width: 100%;
   height: auto;
+}
+.expanded-day hr {
+  border: 1px solid rgba(255, 255, 255, 0.23);
 }
 .sunriseSunset img {
   height: 22px;
