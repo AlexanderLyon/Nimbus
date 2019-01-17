@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Header } from './Header';
 import { Current } from './Current';
 import { Alert } from './Alert';
 import { Hourly } from './Hourly';
@@ -31,22 +32,19 @@ export class MainInterface extends React.Component {
           <div id='buffer' className={ this.props.solidTopBuffer ? "solid" : ""}></div>
         }
         <div id="wrapper">
-          <h1 className='title'>Weather Forecast</h1>
-          <p id="location" onClick={this.props.openLocationMenu}>
-            <i className="fas fa-location-arrow"></i> {this.props.cityName}
-          </p>
-          <p id="last-updated">Last updated: {this.props.lastUpdated}</p>
-          <hr/>
-          <button id="refreshBtn" className="btn"
-            onClick={this.props.fetchData}>
-              <i className={ this.props.refreshing ? "refreshing fas fa-sync-alt" : "fas fa-sync-alt" }></i>Refresh
-          </button>
-          <div id="content">
+          <Header
+            fetchData={this.props.fetchData}
+            openLocationMenu={this.props.openLocationMenu}
+            cityName={this.props.cityName}
+            lastUpdated={this.props.lastUpdated}
+            refreshing={this.props.refreshing}
+          />
+          <main id="content">
             { this.props.currentData && <Current data={this.props.currentData}/> }
             { this.props.allData && <Alert data={this.props.allData.minutely}/> }
             { this.props.hourlyData && <Hourly data={this.props.hourlyData}/> }
             { this.props.weekData && <Week data={this.props.weekData}/> }
-          </div>
+          </main>
           <footer>
             <button id="pushButton" className="btn"></button>
             <a id="credit" href="https://darksky.net/poweredby/">Powered by Dark Sky</a>
