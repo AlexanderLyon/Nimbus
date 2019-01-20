@@ -2,14 +2,17 @@
   font-family: "Quicksand";
   src: url(/websites/Nimbus/src/webfonts/quicksand/Quicksand-Regular.ttf) format("truetype");
 }
-body {
-  margin: 0px;
+html {
   background: linear-gradient(-45deg, #1f4078, #244682, #3662a0, rgb(78, 119, 181), rgb(57, 110, 175), rgb(39, 101, 150), #4573a2, #3c6490, #7fbac6);
 	background-size: 500% 200%;
 	-webkit-animation: Gradient 14s ease infinite;
 	-moz-animation: Gradient 14s ease infinite;
-	animation: Gradient 14s ease infinite;
-  background-color: #3a67b5;
+  animation: Gradient 14s ease infinite;
+  background-color: rgba(55, 104, 158, 1);
+}
+body {
+  margin: 0px;
+  height: 100%;
   color: white;
   font-family: "Quicksand", sans-serif;
 }
@@ -46,7 +49,7 @@ input[type="search"]::-ms-reveal { display: none; }
   left: 0px;
   width: 100%;
   height: 45px;
-  background-color: rgba(58, 103, 181, 0.8);
+  background-color: rgba(55, 104, 158, 0.92);
   z-index: 999;
 }
 #buffer.solid {
@@ -59,6 +62,7 @@ input[type="search"]::-ms-reveal { display: none; }
 #content {
   margin: 0 auto;
   width: 100%;
+  padding-top: 60px;
   max-width: 860px;
 }
 .btn {
@@ -119,8 +123,8 @@ section { margin: 50px 20px 0px 20px; }
 	-webkit-animation: Gradient 14s ease infinite;
 	-moz-animation: Gradient 14s ease infinite;
 	animation: Gradient 14s ease infinite;
-  background-color: #3a67b5;
-  z-index: 888;
+  background-color: rgba(55, 104, 158, 1);
+  z-index: 950;
 }
 #errorDialog {
   margin: 0px auto;
@@ -202,9 +206,20 @@ section { margin: 50px 20px 0px 20px; }
   color: #c7c7c7;
 }
 
+header {
+  position: fixed;
+  height: 65px;
+  width: 100%;
+  padding: 20px 0px 7px 0px;
+  background-color: rgba(55, 104, 158, 0.92);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.23);
+  z-index: 900;
+}
+
 #location {
-  margin: 0px auto 20px auto;
+  margin: 0px auto 12px auto;
   text-align: center;
+  font-size: 20px;
   color: #CFEBFF;
 }
 #location:hover {
@@ -217,12 +232,17 @@ section { margin: 50px 20px 0px 20px; }
 }
 
 #last-updated {
+  display: inline-block;
+  margin: 7px 0px 0px 20px;
   text-align: right;
-  margin: 0px 7px 0px 0px;
+  font-size: 0.9em;
 }
+#last-updated i { margin-right: 3px; }
 
 #refreshBtn {
-  margin-right: 7px;
+  display: inline;
+  margin-right: 10px;
+  border: none;
   float: right;
 }
 #refreshBtn i { margin-right: 7px; }
@@ -292,7 +312,7 @@ section { margin: 50px 20px 0px 20px; }
 	-webkit-animation: Gradient 14s ease infinite;
 	-moz-animation: Gradient 14s ease infinite;
 	animation: Gradient 14s ease infinite;
-  background-color: #3a67b5;
+  background-color: rgba(55, 104, 158, 1);
   z-index: 999;
 }
 #splash-screen {
@@ -504,7 +524,6 @@ footer #credit {
 }
 
 @media(min-width: 471px) {
-  #last-updated, #refreshBtn { margin-right: 3%; }
   .day:hover {
     background-color: rgba(255, 255, 255, 0.17);
   }
