@@ -7,6 +7,19 @@ export class Header extends React.Component {
     this.state = {};
   }
 
+  componentDidMount() {
+    window.addEventListener('scroll', () => {
+      const header = ReactDOM.findDOMNode(this);
+
+      if (window.pageYOffset > 95) {
+        header.style.height = '34px';
+      }
+      else {
+        header.style.height = '65px';
+      }
+    })
+  }
+
   render() {
     return (
       <header>
