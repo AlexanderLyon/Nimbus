@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {darkSkyKey, googleMapsKey} from '../../utilities/api-keys';
+import {googleMapsKey} from '../../utilities/api-keys';
 import { SplashScreen } from './SplashScreen';
 import { ChooseLocation } from './ChooseLocation';
 import { MainInterface } from './MainInterface';
@@ -168,7 +168,7 @@ class App extends React.Component {
       xhr.timeout = 20000;
       console.log("Fetching data from Dark Sky...");
 
-      xhr.open("GET", "https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + darkSkyKey + "/" + this.state.latitude + "," + this.state.longitude, true);
+      xhr.open("GET", "ps/getWeather.php?latitude=" + encodeURIComponent(this.state.latitude) + "&longitude=" + encodeURIComponent(this.state.longitude), true);
       xhr.onload = () => {
         if( xhr.status === 200 ){
           const data = JSON.parse(xhr.response);
@@ -233,6 +233,7 @@ class App extends React.Component {
         });
       };
 
+      xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
       xhr.send();
     }
   }
