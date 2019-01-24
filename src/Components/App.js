@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {googleMapsKey} from '../../utilities/api-keys';
 import { SplashScreen } from './SplashScreen';
 import { ChooseLocation } from './ChooseLocation';
 import { MainInterface } from './MainInterface';
@@ -50,13 +49,13 @@ class App extends React.Component {
       if( this.state.enteredCity ) {
         const xhr = new XMLHttpRequest();
         // Find lat and long from this city name:
-        xhr.open("GET", "https://maps.googleapis.com/maps/api/geocode/json?address=" + this.state.enteredCity + "&sensor=true&key=" + googleMapsKey, true);
+        xhr.open("GET", "ps/getLocationData.php?enteredCity=" + encodeURIComponent(this.state.enteredCity), true);
         xhr.onload = () => {
-          if( xhr.status === 200 ){
-            const data = JSON.parse(xhr.response);
-            //console.log(data);
-
+          if (xhr.status === 200 ) {
             try {
+              const data = JSON.parse(xhr.response);
+              //console.log(data);
+
               this.setState({
                 manualEntryEnabled: false,
                 loading: true,
@@ -67,14 +66,22 @@ class App extends React.Component {
               });
             }
             catch (e) {
+              let errorMsg;
+              if (e.name == 'SyntaxError') {
+                // Dark Sky received a bad request
+                errorMsg = "Sorry, an unknown error has occurred";
+              }
+              else {
+                // Unknown location
+                errorMsg = "Sorry, we couldn't find a location called " + this.state.enteredCity;
+              }
+
               this.setState({
                 loading: false,
-                errorMsg: "Sorry, we couldn't find a location called " + this.state.enteredCity,
+                errorMsg: errorMsg,
                 manualEntryEnabled: true
               });
             }
-
-
           }
         };
         xhr.send();
@@ -114,7 +121,7 @@ class App extends React.Component {
 
   getCityName(resolve, reject) {
     const xhr = new XMLHttpRequest();
-    xhr.open("GET", "https://maps.googleapis.com/maps/api/geocode/json?latlng=" + this.state.latitude + "," + this.state.longitude + "&key=" + googleMapsKey, true);
+    xhr.open("GET", "ps/getLocationData.php?latitude=" + encodeURIComponent(this.state.latitude) + "&longitude=" + encodeURIComponent(this.state.longitude), true);
     xhr.onload = () => {
       if( xhr.status === 200 ){
         const data = JSON.parse(xhr.response);

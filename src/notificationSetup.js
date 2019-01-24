@@ -1,4 +1,3 @@
-import {applicationServerPublicKey} from '../utilities/api-keys';
 
 const pushButton = document.querySelector('#pushButton');
 let isSubscribed = false;
@@ -80,7 +79,7 @@ function updateSubscriptionOnServer(subscription) {
 
 
 function subscribeUser() {
-  const applicationServerKey = urlB64ToUint8Array(applicationServerPublicKey);
+  const applicationServerKey = urlB64ToUint8Array("BN1YAm0v3GpiUU9yRU1Vwb6uXNeaIUwV5HG-3JiHRKV505X5N4ROe7W1PUM15yaf_Ri6ZNJdEsbpanP10rsPS54");
   swRegistration.pushManager.subscribe({
     userVisibleOnly: true,
     applicationServerKey: applicationServerKey
