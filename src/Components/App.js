@@ -69,7 +69,7 @@ class App extends React.Component {
               let errorMsg;
               if (e.name == 'SyntaxError') {
                 // Dark Sky received a bad request
-                errorMsg = "Sorry, an unknown error has occurred";
+                errorMsg = "Sorry, an unknown error has occurred. Please enter a different location or try again later.";
               }
               else {
                 // Unknown location
