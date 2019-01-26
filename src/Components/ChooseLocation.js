@@ -4,7 +4,10 @@ import ReactDOM from 'react-dom';
 export class ChooseLocation extends React.Component {
   constructor(props){
     super(props);
-    this.state = {};
+    this.state = {
+      showSubmit: false
+    };
+    this.handleKeyup = this.handleKeyup.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.printHistory = this.printHistory.bind(this);
     this.clickHistory = this.clickHistory.bind(this);
@@ -13,6 +16,16 @@ export class ChooseLocation extends React.Component {
 
   componentDidMount() {
     /*document.getElementById('loc-input').focus();*/
+  }
+
+
+  handleKeyup(e) {
+    if (e.target.value.trim() !== '') {
+      this.setState({ showSubmit: true });
+    }
+    else {
+      this.setState({ showSubmit: false });
+    }
   }
 
 
@@ -55,11 +68,14 @@ export class ChooseLocation extends React.Component {
           <h1>Search for a location</h1>
           <form id="locationSearch" onSubmit={this.handleSubmit}>
             <input type="search" id="loc-input" placeholder="Enter a location" autoComplete="off"
+              onKeyUp={this.handleKeyup}
               onChange={this.props.updateEnteredCity}
             />
-            <button type="submit">
-              <i className="fas fa-arrow-right"></i>
-            </button>
+            { this.state.showSubmit && 
+              <button type="submit">
+                <i className="fas fa-arrow-right"></i>
+              </button>
+            }
             { (false && this.props.history) && (
               <div id="history">
                 <h4>Recent locations:</h4>
