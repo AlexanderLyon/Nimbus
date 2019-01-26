@@ -24,11 +24,15 @@ hr { border: 2px solid white; }
 ::-webkit-scrollbar {
   height: 7px;
 }
+::-webkit-scrollbar-track {
+  background: transparent;
+}
 ::-webkit-scrollbar-thumb {
-  background-color: #FFFFFF;
+  border-radius: 6px;
+  background-color: rgba(255,255,255,0.6);
 }
 ::-webkit-scrollbar-thumb:hover {
-  background-color: #bebec3;
+  background-color: rgba(255,255,255,0.9);
 }
 
 input[type="search"]::-webkit-search-decoration,
