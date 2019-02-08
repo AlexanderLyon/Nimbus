@@ -41,7 +41,7 @@ export class MainInterface extends React.Component {
           />
           <main id="content">
             { this.props.currentData && <Current data={this.props.currentData}/> }
-            { this.props.allData && <Alert data={this.props.allData.minutely}/> }
+            { (this.props.allData && this.props.allData.minutely) && <Alert data={this.props.allData.minutely}/> }
             { this.props.hourlyData && <Hourly data={this.props.hourlyData}/> }
             { this.props.weekData && <Week data={this.props.weekData}/> }
           </main>
