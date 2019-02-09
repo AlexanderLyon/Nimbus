@@ -13,26 +13,32 @@ export class Hourly extends React.Component {
     let upcomingHours = [];
 
     // Hour adjustments:
-    for(let i=0; i<12; i++) {
+    for (let i=0; i<12; i++) {
       let nextHour = currentHour + i;
 
-      if( nextHour >= 12 ){
-        if( nextHour > 24 ){
+      if (nextHour >= 12) {
+        if (nextHour > 24) {
           upcomingHours[i] = nextHour - 24 + ' AM';
-        } else if( nextHour === 24 || nextHour === 0 ){
+        } else if (nextHour === 24) {
           // Midnight
           upcomingHours[i] = '12 AM';
-        } else if( nextHour > 12 ){
+        } else if (nextHour > 12) {
           upcomingHours[i] = nextHour - 12 + ' PM';
         } else {
           // 12 aka Noon
           upcomingHours[i] = nextHour + ' PM';
         }
       }
+      else if (nextHour === 0) {
+        // Midnight
+        upcomingHours[i] = '12 AM';
+      }
       else {
         upcomingHours[i] = nextHour + ' AM';
       }
     }
+
+    console.log(upcomingHours);
 
     const hourList = upcomingHours.map( (value, i) => (
       <div key={i} className="hour">
