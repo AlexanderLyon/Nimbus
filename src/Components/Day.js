@@ -55,7 +55,7 @@ export class Day extends React.Component {
         { this.props.expanded &&
           <div className='expanded-day'>
             <hr/>
-            <h1>{this.props.data.summary}</h1>
+            <h3>{this.props.data.summary}</h3>
             <p className="sunriseSunset">
                <b>Sunrise:</b> {this.convertTime(this.props.data.sunriseTime)}
                <br/>

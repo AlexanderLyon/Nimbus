@@ -38,8 +38,6 @@ export class Hourly extends React.Component {
       }
     }
 
-    console.log(upcomingHours);
-
     const hourList = upcomingHours.map( (value, i) => (
       <div key={i} className="hour">
         <p className='box-title'>{value}</p>
