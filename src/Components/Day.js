@@ -32,7 +32,7 @@ export class Day extends React.Component {
   }
 
 
-  render(){
+  render() {
     return (
       <div className={ this.props.expanded ? 'day expanded' : 'day' } onClick={this.handleClick}>
         <img className='daily-icon' src={'src/images/' + this.props.data.icon + '.svg'} alt='weather' />
@@ -56,11 +56,16 @@ export class Day extends React.Component {
           <div className='expanded-day'>
             <hr/>
             <h3>{this.props.data.summary}</h3>
-            <p className="sunriseSunset">
-               <b>Sunrise:</b> {this.convertTime(this.props.data.sunriseTime)}
-               <br/>
-               <b>Sunset:</b> {this.convertTime(this.props.data.sunsetTime)}
-            </p>
+            <div className="day-expanded-stats">
+              <div>
+                <p><b>Sunrise:</b> {this.convertTime(this.props.data.sunriseTime)}</p>
+                <p><b>Sunset:</b> {this.convertTime(this.props.data.sunsetTime)}</p>
+              </div>
+              <div>
+                <p><b>UV Index:</b> {this.props.data.uvIndex}</p>
+                <p><b>Visibility:</b> {this.props.data.visibility} mi.</p>
+              </div>
+            </div>
           </div>
         }
         </CSSTransitionGroup>

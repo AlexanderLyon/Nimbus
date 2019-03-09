@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 export class ChooseLocation extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
       showSubmit: false
@@ -55,7 +55,7 @@ export class ChooseLocation extends React.Component {
   }
 
 
-  render(){
+  render() {
     return (
       <div id="manualEntry">
         { this.props.closable &&

@@ -187,19 +187,19 @@ class App extends React.Component {
           console.log(data);
 
           // Save hourly data for 12 hours
-          for(let i=0; i<12; i++){
+          for (let i=0; i<12; i++) {
             hourlyData[i] = data.hourly.data[i];
           }
 
           // Save one week of daily weather data:
-          for(let i=0; i<7; i++){
+          for (let i=0; i<7; i++) {
             weekData[i] = data.daily.data[i];
           }
 
-          if( hour === 0 ){
+          if (hour === 0) {
             hour = 12;
           }
-          else if( hour > 12 ){
+          else if (hour > 12) {
             hour = hour - 12;
             meridian = "PM";
           }

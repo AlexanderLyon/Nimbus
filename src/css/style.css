@@ -495,12 +495,19 @@ header {
 .expanded-day hr {
   border: 1px solid rgba(255, 255, 255, 0.23);
 }
-.sunriseSunset img {
+
+.day-expanded-stats img {
   height: 22px;
   width: 22px;
   vertical-align: bottom;
   margin: 0px 7px;
 }
+.day-expanded-stats p {
+  margin: 6px 0px;
+}
+
+.day-expanded-stats > div { display: inline-block; }
+.day-expanded-stats > div:nth-child(2) { margin-left: 50px;}
 
 
 
@@ -537,6 +544,10 @@ footer #credit {
 @media(max-width: 500px) {
   body, #manualEntry, #splash-screen {
     background-size: 300% 100%;
+  }
+  .day-expanded-stats > div:nth-child(2) {
+    float: right;
+    margin-left: 0px;
   }
 }
 
